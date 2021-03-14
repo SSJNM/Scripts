@@ -402,7 +402,7 @@ def HadoopOptions():
         os.system('sudo cp -rf menu/hdfs-site.xml /etc/hadoop/hdfs-site.xml')
         os.system('sudo cp -rf menu/core-site.xml /etc/hadoop/core-site.xml')
         os.system("echo -e '<configuration>\n<property>\n<name>dfs.name.dir</name>\n<value>{}</value>\n</property>\n</configuration>' >> /etc/hadoop/hdfs-site.xml ".format(direct))
-        os.system("echo -e '<configuration>\n<property>\n<name>fs.default.name</name>\n<value>{}</value>\n</property>\n</configuration>' >> /etc/hadoop/core-site.xml ".format(ip))
+        os.system("echo -e '<configuration>\n<property>\n<name>fs.default.name</name>\n<value>hdfs://{}</value>\n</property>\n</configuration>' >> /etc/hadoop/core-site.xml ".format(ip))
         os.system('hadoop namenode -format')
         print("!!Your System has been configured for NameNode!!")
     elif ans == "3":
